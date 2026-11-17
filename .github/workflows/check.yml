@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install TikTokLive requests
+      - run: pip install TikTokLive requests yt-dlp
       - run: python check_live.py
         env:
           TIKTOK_USER: ${{ secrets.TIKTOK_USER }}
@@ -22,6 +22,6 @@ jobs:
       - run: |
           git config user.name bot
           git config user.email bot@example.com
-          git add state.txt || true
+          git add state.txt last_post.txt || true
           git commit -m state || true
           git push || true
