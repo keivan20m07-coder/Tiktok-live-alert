@@ -22,6 +22,7 @@ jobs:
       - run: |
           git config user.name bot
           git config user.email bot@example.com
-          git add state.txt last_post.txt || true
+          date +%F > heartbeat.txt
+          git add state.txt last_post.txt heartbeat.txt || true
           git commit -m state || true
           git push || true
